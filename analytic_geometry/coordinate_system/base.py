@@ -39,7 +39,7 @@ class CoordinatePoint(ABC):
         """
         if not isinstance(other, CoordinatePoint):
             return False
-        return all(self.to_cartesian().to_array() == other.to_cartesian().to_array())
+        return np.array_equal(self.to_cartesian().to_array(), other.to_cartesian().to_array())
         
     @abstractmethod
     def to_array(self) -> np.ndarray:
